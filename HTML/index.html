@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Complex Table</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 10px;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <main>
+        <table>
+            <tr>
+                <th rowspan="2">Category</th>
+                <th colspan="3">Subcategories</th>
+                <th rowspan="2">Total</th>
+            </tr>
+            <tr>
+                <th>Sub 1</th>
+                <th>Sub 2</th>
+                <th>Sub 3</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Category A</td>
+                <td>10</td>
+                <td>20</td>
+                <td>30</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>25</td>
+                <td>35</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td colspan="4">Total of all categories</td>
+                <td>135</td>
+            </tr>
+        </table>
+    </main>
+
 </body>
 </html>

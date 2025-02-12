@@ -15,10 +15,11 @@
 ### Semantic element and non-semantic element
 - the tags like ```<header> <article> <section>``` are known as ***semantic elements*** and are used in the places where the mean the same
 - there are places which the elements doesnt mean anything or need css and js to act upon so there comes ***non-semantic elements***
-
-### tags not used yet
 - tags like ```<span> <div>``` are used with proper class names where the semantic elements doesn't work.
+### tags not used yet
 - To create quotes in the inline or multiple line we use ```<q>``` and in order to create a block quote we can use the tag ```<Blockquote>```
 - the date and time can be expressed using the ```<time>``` in order to use common format for the computer to understand the time format
 - to make the link to open in new tab you can use ```<a href="https:/google.com" target="_blank">link </a>```. There is a problem where the link has the access to js using the ***windows.opener*** so the attribute of the rel should ne noopener
 - to make a download link we can use ```<a href="hello.pdf" download>download</a>```
+### HTML IMAGES
+- specifying the ```width``` and ```height``` of the image tag reserves the space for that image which doesn't make any changes to the screeen still the contents will be in the same place
