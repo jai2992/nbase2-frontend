@@ -16,7 +16,7 @@
 - The tags like ```<header> <article> <section>``` are known as ***semantic elements*** and are used in the places where the mean the same
 - There are places which the elements doesnt mean anything or need css and js to act upon so there comes ***non-semantic elements***
 - Tags like ```<span> <div>``` are used with proper class names where the semantic elements doesn't work.
-### tags not used yet
+### Tags not used yet
 - To create quotes in the inline or multiple line we use ```<q>``` and in order to create a block quote we can use the tag ```<Blockquote>```
 - The date and time can be expressed using the ```<time>``` in order to use common format for the computer to understand the time format
 - To make the link to open in new tab you can use ```<a href="https:/google.com" target="_blank">link </a>```. There is a problem where the link has the access to js using the ***windows.opener*** so the attribute of the rel should ne noopener
@@ -35,3 +35,5 @@
 
 ### HTML forms
 - Forms are created using the tags such as ```<form>``` ```<label>``` ```<input>``` and ```<select>```.
+- For the radio button the ***name should be same*** in order to select only one among the available ones.
+- Can use the ```<fieldset>``` and ```<legend>``` to create a group of similer form inputs
