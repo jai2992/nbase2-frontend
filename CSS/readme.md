@@ -40,3 +40,21 @@ grid-area : grid-row-start / grid-column-start / grid-row-end / grid-column-end 
 - This also can be done in fractions like ```grid-template-columns:1fr 3fr;``` total grid is divided into 4 parts where the first part is take by the first element and the remaining 3 parts are taken by the second element.
 - Not only the fr we can also use the pixel or rem values and fr take the remaining space ex ```grid-template-columns:50px 1fr 4fr 50px;``` here the last two grid columns take the space of 50px and the remaining space is divided into 5 parts which the second element takes the one part and remaining four parts are taken by the 3rd element.
 - Similar way we can use the``` grid-template: row / column;```
+
+## Display:flex
+- when given display flex css is the block and the attributes.
+- ```justify-content``` with the values as ```flex-start, flex-end, center, space-around and space-between``` are used to place items in the column fashion
+- ```align-items``` with the values as ```flex-start, flex-end, center, space-around and space-between``` are used to place items in the row fashion
+- ```flex-direction``` can have values as ```row, row-reverse, column and column-reverse```.
+- ```order``` is used to rearrange the element which by default has the value of ```0``` and can have the values from ```negative to positive```.
+- ```align-self``` also works like same as the align-items but can be used for individuals inside the flex
+- ```flex-wrap``` is also an attribute to wrap the contents inside the flex with the values as ```nowarp, warp and warp-reverse```
+- ```flex-direction``` and ```flex-warp``` are combined in the``` flex-flow ```attribute which has the values of the flex-direction and flex-warp seperated by space between them.
+- ```align-content``` are for the space between the line whereas the ```align-items``` position all the items in the container
+
+## Text styling
+- The text styling has the following attributes namely ```font-style, font-weight, font-size, text-decoration```
+
+## Position, float
+- float is used to place images.
+- position is used to 
