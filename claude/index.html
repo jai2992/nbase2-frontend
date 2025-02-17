@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Tasks - 3D Todo List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4CAF50;
+            --background: #1a1a2e;
+            --card: #262645;
+            --text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            perspective: 1000px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            transform-style: preserve-3d;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+            transform-style: preserve-3d;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            transform-style: preserve-3d;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: var(--card);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(108, 99, 255, 0.5);
+        }
+
+        button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        button:hover {
+            transform: translateZ(20px);
+            box-shadow: 0 0 15px rgba(108, 99, 255, 0.5);
+        }
+
+        .todo-list {
+            list-style: none;
+            transform-style: preserve-3d;
+        }
+
+        .todo-item {
+            background: var(--card);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .todo-item:hover {
+            transform: translateZ(20px) scale(1.02);
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+        }
+
+        .todo-text {
+            flex: 1;
+            margin-right: 1rem;
+        }
+
+        .todo-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .todo-actions button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .edit-btn {
+            background: var(--secondary);
+        }
+
+        .delete-btn {
+            background: #ff4444;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateZ(0);
+            }
+            50% {
+                transform: translateY(-20px) translateZ(50px);
+            }
+        }
+
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        /* Adding sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: white;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Stellar Tasks ✨</h1>
+        <div class="input-section">
+            <input type="text" id="todoInput" placeholder="Enter your task...">
+            <button onclick="addTodo()">Add Task</button>
+        </div>
+        <ul class="todo-list" id="todoList"></ul>
+    </div>
+
+    <script>
+        // Initialize GSAP
+        gsap.config({force3D: true});
+
+        let todos = [];
+        const todoList = document.getElementById('todoList');
+        const todoInput = document.getElementById('todoInput');
+
+        // Add sparkle effect
+        function createSparkle(e) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            document.body.appendChild(sparkle);
+
+            gsap.set(sparkle, {
+                x: e.clientX,
+                y: e.clientY
+            });
+
+            gsap.to(sparkle, {
+                duration: 1,
+                x: e.clientX + (Math.random() - 0.5) * 100,
+                y: e.clientY + (Math.random() - 0.5) * 100,
+                opacity: 0,
+                ease: "power4.out",
+                onComplete: () => sparkle.remove()
+            });
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.1) {
+                createSparkle(e);
+            }
+        });
+
+        function addTodo() {
+            const text = todoInput.value.trim();
+            if (text) {
+                const todo = {
+                    id: Date.now(),
+                    text,
+                    completed: false
+                };
+                todos.push(todo);
+                renderTodos();
+                todoInput.value = '';
+                
+                // Animation for new todo
+                const newTodoElement = todoList.lastElementChild;
+                gsap.from(newTodoElement, {
+                    duration: 0.5,
+                    opacity: 0,
+                    y: 50,
+                    rotationX: -90,
+                    transformOrigin: "50% 50% -50",
+                    ease: "back.out(1.7)"
+                });
+            }
+        }
+
+        function deleteTodo(id) {
+            const todoElement = document.querySelector(`[data-id="${id}"]`);
+            gsap.to(todoElement, {
+                duration: 0.5,
+                opacity: 0,
+                x: 100,
+                rotationY: 90,
+                ease: "power2.in",
+                onComplete: () => {
+                    todos = todos.filter(todo => todo.id !== id);
+                    renderTodos();
+                }
+            });
+        }
+
+        function editTodo(id) {
+            const todo = todos.find(t => t.id === id);
+            const newText = prompt('Edit task:', todo.text);
+            if (newText !== null && newText.trim()) {
+                todo.text = newText.trim();
+                renderTodos();
+            }
+        }
+
+        function toggleComplete(id) {
+            const todo = todos.find(t => t.id === id);
+            todo.completed = !todo.completed;
+            renderTodos();
+        }
+
+        function renderTodos() {
+            todoList.innerHTML = todos.map(todo => `
+                <li class="todo-item" data-id="${todo.id}">
+                    <span class="todo-text ${todo.completed ? 'completed' : ''}" 
+                          onclick="toggleComplete(${todo.id})">
+                        ${todo.text}
+                    </span>
+                    <div class="todo-actions">
+                        <button class="edit-btn" onclick="editTodo(${todo.id})">Edit</button>
+                        <button class="delete-btn" onclick="deleteTodo(${todo.id})">Delete</button>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        // Add task on Enter key
+        todoInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addTodo();
+            }
+        });
+
+        // Initial animation
+        gsap.from('h1', {
+            duration: 1.5,
+            y: -100,
+            opacity: 0,
+            ease: "elastic.out(1, 0.7)"
+        });
+
+        gsap.from('.input-section', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            delay: 0.5,
+            ease: "back.out(1.7)"
+        });
+    </script>
+</body>
+</html>
