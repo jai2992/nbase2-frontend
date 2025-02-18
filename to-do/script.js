@@ -3,16 +3,16 @@ const deadLines = []
 const progress = []
 function saveLocal()
 {
-    localStorage.setItem("tasks",tasks)
-    localStorage.setItem("deadlines",deadLines)
-    localStorage.setItem("progress",progress)
-    alert("saved successfully !!!")
+    // localStorage.setItem("tasks",tasks)
+    // localStorage.setItem("deadlines",deadLines)
+    // localStorage.setItem("progress",progress)
+    alert("Sorry this button doesnt work")
 }
-console.log(localStorage.getItem('tasks'));
+// console.log(localStorage.getItem('tasks'));
 
-tasks.push(localStorage.getItem('tasks'))
-deadLines.push(localStorage.getItem('deadlines'))
-progress.push(localStorage.getItem('progress'))
+// tasks.push(localStorage.getItem('tasks'))
+// deadLines.push(localStorage.getItem('deadlines'))
+// progress.push(localStorage.getItem('progress'))
 const showTask = document.getElementById("tasks")
 showTask.innerHTML=viewTasks()
 

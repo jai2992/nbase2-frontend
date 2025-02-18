@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gem counter</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+    <header>
+        <h1>Gem run game</h1>
+        <div>
+            Score : 
+            <span class="res"></span>
+        </div>
+        
+    </header>
+    <main>
+        <div class="left">
+            <h1>Collect coins</h1>
+            <i>Every coin is worth a score of 10</i><br>
+            <button onclick="p.coinInc()">Collect Coin</button>
+            <h2><div><span class="show-coins"></span>coins collected</div> </h2>
+        </div>
+        <div class="right">
+            <h1>Collect gems</h1>
+            <i>Every coin is worth a score of 50</i><br>
+            <button onclick="p.gemInc()">Collect Gem</button>
+            <h2><div><span class="show-gems"></span> gems collected</div></h2>
+        </div>
+    </main>
+</body>
+</html>
