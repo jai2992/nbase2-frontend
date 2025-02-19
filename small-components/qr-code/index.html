@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr code generator</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <form onsubmit="return getQr(event)">
+                <h1>Qr Code Generator</h1>
+                <input type="text" id="input" placeholder="Enter the link -> QR">
+                <label for="size">size of the QR : <span class="show-size"></span></label>
+                <input type="range" name="size" id="size" min="300" max="1024" step="100" value="300" onchange="showSize()">
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+        <div class="right">
+            <div class="qr-img">
+                <img src="https://3.bp.blogspot.com/-yiOORKtFXk0/Vr8PEiybFpI/AAAAAAAABIA/Ac65LHnd0nA/s1600-r/pikacrunk.gif" alt="" >
+            </div>
+        </div>
+    </div>
+</body>
+</html>

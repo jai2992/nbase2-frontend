@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h3>Form validation</h3>
+    </header>
+    <main>
+        <form onsubmit="return validate(event)">
+            <input type="text" id="name" placeholder="Enter your name"><span class="name-error"></span>
+            <input type="text" id="email" placeholder="Enter your email id"><span class="email-error"></span>
+            <input type="text" id="phone" placeholder="Enter your mobile number"><span class="phone-error"></span>
+            <button type="submit">submit</button>
+        </form>
+    </main>
+</body>
+</html>
