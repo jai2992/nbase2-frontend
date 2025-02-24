@@ -14,14 +14,14 @@ for(let i = 0; i < pages.length ; i++)
 {
     if(i % 2 == 0)
         {
-            c1+=`<a href="${pages[i].path}" ><div class="content">
+            c1+=`<a href="${pages[i].path}" target="_blank" ><div class="content">
             <p>${pages[i].desc}<p>
             </div></a>`
             c2+=`<div class="content-logo">${pages[i].name}</div>`
         }
         else{
             c1+=`<div class="content-logo-left">${pages[i].name}</div>`
-            c2+=`<a href="${pages[i].path}" ><div class="content">
+            c2+=`<a href="${pages[i].path}" target="_blank"><div class="content">
             <p>${pages[i].desc}<p>
             </div></a>`
         }
