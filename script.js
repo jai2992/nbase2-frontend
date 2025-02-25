@@ -5,7 +5,8 @@ let pages = [
     {name: " To-Do List 📝", path: "./to-do/index.html", desc: "Organize your tasks efficiently with this to-do list! ✅"},
     {name: "💎 Gem Counter ", path: "./small-components/gem counter/index.html", desc: "Track your gems effortlessly with this interactive counter! 🔢"},
     {name: "Weather App 🌦️", path: "./small-components/weather/index.html", desc: "Check real-time weather updates with this simple app! ⛅"},
-    {name: "📸 QR Code Generator", path: "./small-components/qr-code/index.html", desc: "Generate QR codes instantly with this handy tool! 🔳"}
+    {name: "📸 QR Code Generator", path: "./small-components/qr-code/index.html", desc: "Generate QR codes instantly with this handy tool! 🔳"},
+    {name: "Clock⏰", path: "./Clock/stopwatch/index.html", desc: "Explore the features of a modern clock ⏳"}
 ];
 
 let c1=""
