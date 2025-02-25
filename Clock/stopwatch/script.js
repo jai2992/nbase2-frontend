@@ -9,7 +9,7 @@ function stopwatch()
         document.querySelector(".timer").innerHTML=count++
     },1000)
 }
-function start_stopwatch()
+function startStopwatch()
 {
     if(!isTimerOn)
     {
@@ -19,7 +19,7 @@ function start_stopwatch()
     }
 }
 
-function stop_stopwatch()
+function stopStopwatch()
 {
     isTimerOn=0;
     clearInterval(timerId)

@@ -1,0 +1,43 @@
+*{
+    margin: 0%;
+    padding: 0;
+}
+.timer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    border: none;
+    font-size: 400px;
+    font-family: "Orbitron", serif;
+    font-weight: bolder;
+    text-align: center;
+    width: 100vw;
+}
+input:focus{
+    border: none;
+    box-shadow: none;
+    outline: none;
+    pointer-events: none;
+}
+hr{
+    top:0%;
+    height: 10px;
+    background-color: greenyellow;
+}
+
+button{
+    padding: 20px;
+    border: 1px solid black;
+    background:transparent;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: "Orbitron";
+    border-radius: 20%;
+}
+button:hover{
+    background-color: rgba(0, 0, 0, 0.275);
+}
