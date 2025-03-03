@@ -1,84 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background: url(background.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 header{
-    font-size: 20px;
-    text-align: center;
+    margin:20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;  
+}
+.app-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
     padding: 20px;
-    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 10px;
+    background:rgba(0, 0, 0, 0.647);
+    width: 80%;
+    height: 80%;
 }
 .input-container{
     display: flex;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background:transparent;
+    /* border: 1px solid white;
+    border-radius: 10px; */
+}
+.input-container form{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.input-container button{
+    padding: 10px 10px;
+    color: white;
+    border-radius: 10px;
+    background: rgba(87, 86, 86, 0.506);
+    border: 1px solid white;
+}
+.input-container button:hover{
+    padding: 10px 10px;
+    color: white;
+    border-radius: 10px;
+    background: rgb(87, 86, 86);
+    border: 1px solid white;
+}
+.tasks-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap:20px;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+input{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    /* background: none; */
+    border: none;
+    text-align: center;
+    background:rgba(87, 86, 86, 0.506);
+    padding: 5px;
+    border-radius: 10px;
+    /* border:1px solid rgba(255, 255, 255, 0.169); */
+}
+input:focus{
+    background-color: rgba(255, 255, 255, 0.078);
+    /* border: non; */
+    border: 0.2px solid white;
+}
+.task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(250, 235, 215, 0.8);
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.task:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+}
+
+.task h3 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.task p {
+    color: #555;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 14px;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.task button {
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+    width: 80%;
+}
+
+.task button:first-of-type {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.task button:first-of-type:hover {
+    background-color: #3e8e41;
+}
+
+.task button:last-of-type {
+    background-color: #f44336;
+    color: white;
+}
+
+.task button:last-of-type:hover {
+    background-color: #d32f2f;
+}
+
+.button-container {
+    display: flex;
     justify-content: center;
     gap: 20px;
-    align-items: center;
+    margin-top: 30px;
+    width: 100%;
 }
-input:hover{
-    background-color: rgb(249, 234, 216);
-    border:0px;
+
+.button-container button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid white;
+    transition: all 0.3s ease;
 }
-table, tr , td, th
-{
-    border: 1px solid black;
-    border-collapse: collapse;
+
+.clear {
+    background-color: rgba(244, 67, 54, 0.7);
+    color: white;
+}
+
+.clear:hover {
+    background-color: rgba(244, 67, 54, 1);
+}
+
+.sucess-btn {
+    background-color: rgba(76, 175, 80, 0.7);
+    color: white;
+}
+
+.sucess-btn:hover {
+    background-color: rgba(76, 175, 80, 1);
+}
+
+
+.tasks-container {
+    overflow-y: auto;
+    max-height: 60vh;
+    width: 90%;
     padding: 10px;
 }
-#tasks{
-    margin-top: 20px;
+
+.tasks-container::-webkit-scrollbar {
+    width: 8px;
 }
-.table-container{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    align-items: center;
+
+.tasks-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
 }
-.save-container{
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.tasks-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
 }
-.sucess-btn{
-    border: 1px green solid;
-    background-color: lightgreen;
-    color: black;
-    font-weight: bold;
-    border-radius: 5px;
+
+.tasks-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
-.sucess-btn:hover{
-    background-color: rgb(0, 255, 0);
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-.del-btn{
-    border: 1px red solid;
-    background-color: lightcoral;
-    color: black;
-    font-weight: bold;
-    border-radius: 5px;
+
+.task {
+    animation: fadeIn 0.5s ease forwards;
 }
-.del-btn:hover{
-    background-color: rgb(255, 37, 37);
+
+.completed {
+    background-color: rgba(200, 230, 201, 0.8);
+    opacity: 0.8;
 }
-.edit-btn{
-    border: 1px rgb(255, 217, 0) solid;
-    background-color: rgb(249, 249, 163);
-    color: black;
-    font-weight: bold;
-    border-radius: 5px;
+
+.completed h3 {
+    text-decoration: line-through;
+    color: #777;
 }
-.edit-btn:hover{
-    background-color: rgb(252, 224, 67);
-}
-.pending{
-    border: 1px orange solid;
-    background-color: rgb(250, 220, 165);
-    color: black;
-    font-weight: bold;
-    border-radius: 5px;
-}
-.pending:hover{
-    background-color: rgb(255, 182, 47);
-}
-.completed{
-    border: 1px green solid;
-    background-color: lightgreen;
-    color: black;
-    font-weight: bold;
-    border-radius: 5px;
+
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }

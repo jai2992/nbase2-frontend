@@ -1,85 +1,110 @@
-const tasks = []
-const deadLines = []
-const progress = []
-function saveLocal()
-{
-    // localStorage.setItem("tasks",tasks)
-    // localStorage.setItem("deadlines",deadLines)
-    // localStorage.setItem("progress",progress)
-    alert("Sorry this button doesnt work")
-}
-// console.log(localStorage.getItem('tasks'));
+let tasks = JSON.parse(localStorage.getItem("task"))||[]
 
-// tasks.push(localStorage.getItem('tasks'))
-// deadLines.push(localStorage.getItem('deadlines'))
-// progress.push(localStorage.getItem('progress'))
-const showTask = document.getElementById("tasks")
-showTask.innerHTML=viewTasks()
+let taskName = document.querySelector(".taskName")
+let taskDes = document.querySelector(".taskDes")
+let time = document.querySelector(".timeInput")
+time.min=new Date().toISOString().slice(0,new Date().toISOString().lastIndexOf(":"));
+time.max=new Date().toISOString().slice(0,new Date().toISOString().lastIndexOf(":"));
 
-function delTask(id)
+function deleteAll()
 {
-    tasks.splice(id,1)
-    deadLines.splice(id,1)
-    progress.splice(id,1)
-    const showTask = document.getElementById("tasks")
-    showTask.innerHTML=viewTasks()
-
-}
-function changeProgress(id)
-{
-    progress[id]=progress[id]?0:1
-    const showTask = document.getElementById("tasks")
-    showTask.innerHTML=viewTasks()
-}
-function editTask(id)
-{
-    tasks[id]=prompt("Edit the task")
-    const showTask = document.getElementById("tasks")
-    showTask.innerHTML=viewTasks()
-}
-function viewTasks()
-{
-    let taskView = `<tr>
-                <th>Sno</th>
-                <th>Task</th>
-                <th>Deadline</th>
-                <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>`
     for(let i=0;i<tasks.length;i++)
     {
-        taskView+=`<tr>
-        <td>${i+1}</td>
-        <td>${tasks[i]}</td>
-        <td>${deadLines[i]}</td>
-        <td><button class=${progress[i]?"completed":"pending"} onclick="changeProgress(${i})">${progress[i]?"completed":"pending"}</button></td>
-        <td><button class="edit-btn" onclick="editTask(${i})">Edit</button></td>
-        <td><button class="del-btn" onclick="delTask(${i})">Delete</button></td>
-        </tr>
+        deleteTask(tasks[i].id)
+    }
+    display()
+}
+function notify(id)
+{
+    let t = tasks[id].time
+    t = t   .split(":")
+    console.log(t);
+    let d = new Date()
+    t[0]=(parseInt(t[0])-d.getHours())*60*60*1000
+    t[1]=(parseInt(t[1])-d.getMinutes())*60*1000
+    let delay = (t[0]+t[1]+(-d.getSeconds())*1000)
+    console.log("notify ",delay/1000)
+    if(delay>0)
+    {
+        setTimeout(()=>{
+            alert(`Remainder ${tasks[id].name} !!!`)
+        },delay)
+    }
+}
+
+function addTask(event)
+{
+    event.preventDefault()
+    tasks.push({
+        id: tasks.length,
+        name: taskName.value,
+        des: taskDes.value,
+        time: time.value,
+        status:0
+    });
+    taskName.value=""
+    taskDes.value=""
+    time.value=""
+    notify(tasks.length-1)
+    display()
+}
+function saveLocal()
+{
+    localStorage.setItem("task",JSON.stringify(tasks))
+    alert("sucessfully saved!!")
+}
+function saveLocalWithoutAlert()
+{
+    localStorage.setItem("task",JSON.stringify(tasks))
+}
+function deleteTask(id)
+{
+    console.log(id)
+    tasks=tasks.filter((task)=>{
+        return task.id!=id
+    })
+    display()
+}
+function changeStatus(id)
+{
+    tasks=tasks.map(task=>
+    {
+        if(task.id===id)
+        {
+            if(task.status)
+            {
+                alert("already completed")
+                return task
+            }
+            return {...task,status:task.status===1?0:1}
+        }
+        return task
+    })
+    display()
+}
+
+function display()
+{
+    let s=''
+    for(let i = 0 ; i<tasks.length;i++)
+    {
+        s+=`<div class="task">
+        <h3>${tasks[i].name}</h3>
+        <p>${tasks[i].des}</p>
+        <p>${tasks[i].time}</p>
+        <button onclick="changeStatus(${tasks[i].id})">${tasks[i].status?"completed":"pending"}</button>
+        <button onclick="deleteTask(${tasks[i].id})">delete</button>
+        </div>
         `
     }
-    // console.log(taskView)
-    return taskView
+    let con = document.querySelector(".tasks-container")
+    con.innerHTML=s
+    saveLocalWithoutAlert()
+    
 }
+display()
 
-function addTask()
+for(let i=0;i<tasks.length;i++)
 {
-    const t = document.getElementById("task")
-    const d = document.getElementById("deadline")
-    if(t.value)
-    {
-        tasks.push(t.value)
-    }
-    if(d.value)
-    {
-        deadLines.push(d.value)
-        progress.push(0)
-    }
-    const showTask = document.getElementById("tasks")
-    showTask.innerHTML=viewTasks()
-    console.log(tasks,deadLines,progress)
+    notify(i)
 }
-
-let btn = document.getElementById("add-task")
-btn.addEventListener("click",addTask)

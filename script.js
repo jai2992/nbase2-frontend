@@ -6,7 +6,7 @@ let pages = [
     {name: "💎 Gem Counter ", path: "./small-components/gem counter/index.html", desc: "Track your gems effortlessly with this interactive counter! 🔢"},
     {name: "Weather App 🌦️", path: "./small-components/weather/index.html", desc: "Check real-time weather updates with this simple app! ⛅"},
     {name: "📸 QR Code Generator", path: "./small-components/qr-code/index.html", desc: "Generate QR codes instantly with this handy tool! 🔳"},
-    {name: "StopWatch⏰", path: "./Clock/stopwatch/index.html", desc: "Explore the features of a modern clock ⏳"},
+    {name: "StopWatchs ⏳", path: "./Clock/stopwatch/index.html", desc: "Explore the features of a modern clock ⏳"},
     {name: "⏰Timer", path: "./Clock/timer/index.html", desc: "Explore the features of a modern clock ⏳"}
 ];
 
