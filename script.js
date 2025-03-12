@@ -7,7 +7,8 @@ let pages = [
     {name: "Weather App 🌦️", path: "./small-components/weather/index.html", desc: "Check real-time weather updates with this simple app! ⛅"},
     {name: "📸 QR Code Generator", path: "./small-components/qr-code/index.html", desc: "Generate QR codes instantly with this handy tool! 🔳"},
     {name: "StopWatchs ⏳", path: "./Clock/stopwatch/index.html", desc: "Explore the features of a modern clock ⏳"},
-    {name: "⏰Timer", path: "./Clock/timer/index.html", desc: "Explore the features of a modern clock ⏳"}
+    {name: "⏰Timer", path: "./Clock/timer/index.html", desc: "Explore the features of a modern clock ⏳"},
+    {name: "Spiral", path: "./task1/index.html", desc: "See the magic behind the spiral ones"}
 ];
 
 let c1=""

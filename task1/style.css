@@ -1,0 +1,41 @@
+table, tr, td{
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    border-collapse: collapse;
+    background-color: rgba(4, 20, 45, 0.596);
+}
+table{
+    text-align: center;
+    width: 60%;
+    height: 100%;
+}
+body{
+    text-align: center;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(1261646.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.input-container{
+    height: 10%;
+    background-color: rgb(4, 20, 45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 10px;
+}
+.matrix-container{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}

@@ -92,15 +92,14 @@ function display()
         <h3>${tasks[i].name}</h3>
         <p>${tasks[i].des}</p>
         <p>${tasks[i].time}</p>
-        <button onclick="changeStatus(${tasks[i].id})">${tasks[i].status?"completed":"pending"}</button>
-        <button onclick="deleteTask(${tasks[i].id})">delete</button>
+        <button class="state" onclick="changeStatus(${tasks[i].id})">${tasks[i].status?"Completed":"Pending"}</button>
+        <button class="delete" onclick="deleteTask(${tasks[i].id})">Delete</button>
         </div>
         `
     }
     let con = document.querySelector(".tasks-container")
     con.innerHTML=s
-    saveLocalWithoutAlert()
-    
+    // saveLocalWithoutAlert()
 }
 display()
 

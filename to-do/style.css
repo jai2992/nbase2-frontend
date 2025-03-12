@@ -95,14 +95,13 @@ input:focus{
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(250, 235, 215, 0.8);
+    background-color: rgba(215, 250, 249, 0.8);
     width: 200px;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s; */
 }
 
 .task:hover {
-    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
 }
 
@@ -130,24 +129,24 @@ input:focus{
     cursor: pointer;
     font-size: 12px;
     transition: background-color 0.3s;
-    width: 80%;
+    width: 60%;
 }
 
-.task button:first-of-type {
+.state{
     background-color: #4CAF50;
     color: white;
 }
 
-.task button:first-of-type:hover {
+.state:hover {
     background-color: #3e8e41;
 }
 
-.task button:last-of-type {
+.delete {
     background-color: #f44336;
     color: white;
 }
 
-.task button:last-of-type:hover {
+.delete {
     background-color: #d32f2f;
 }
 
@@ -192,43 +191,6 @@ input:focus{
     max-height: 60vh;
     width: 90%;
     padding: 10px;
-}
-
-.tasks-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.tasks-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.tasks-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-}
-
-.tasks-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.task {
-    animation: fadeIn 0.5s ease forwards;
-}
-
-.completed {
-    background-color: rgba(200, 230, 201, 0.8);
-    opacity: 0.8;
-}
-
-.completed h3 {
-    text-decoration: line-through;
-    color: #777;
 }
 
 
