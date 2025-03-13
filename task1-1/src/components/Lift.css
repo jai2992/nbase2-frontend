@@ -1,0 +1,11 @@
+.lift-container{
+    display: flex;
+    height:100%;
+}
+.right-door{
+    background-color: blue;
+    
+}
+.left-door{
+    background-color: blueviolet;
+}

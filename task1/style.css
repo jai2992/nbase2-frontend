@@ -1,15 +1,9 @@
-table, tr, td{
-    color: white;
-    border: 1px solid rgb(255, 255, 255);
-    border-collapse: collapse;
-    background-color: rgba(4, 20, 45, 0.596);
-}
-table{
-    text-align: center;
-    width: 60%;
-    height: 100%;
+*{
+    margin: 0%;
+    padding: 0%;
 }
 body{
+    /* overflow: hidden; */
     text-align: center;
     display: flex;
     height: 100vh;
@@ -38,4 +32,16 @@ body{
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+
+table, tr, td{
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    border-collapse: collapse;
+    background-color: rgba(4, 20, 45, 0.596);
+}
+table{
+    text-align: center;
+    width: 60%;
+    height: 100%;
 }

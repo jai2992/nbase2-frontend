@@ -11,11 +11,12 @@
     <div class="input-container">
         <div>
             <input type="number" class="start" placeholder="Enter the start number">
-            <input type="number" class="repeat" placeholder="Enter the times to repeat a number">
+            <input type="number" class="repeat" min="0" placeholder="Enter the times to repeat a number">
             <input type="number" class="skip" placeholder="Enter the skip element">
             <input type="number" class="size" placeholder="Enter the size of the matrix">
         </div>
-        <button onclick="print()">Let the magic happen</button>
+        <button onclick="print()" class="btn">Let the magic happen</button>
+        <button onclick="changePause()">Pause</button>
     </div>
     <div class="matrix-container">
         <table>

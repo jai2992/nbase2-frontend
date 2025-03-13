@@ -4,6 +4,29 @@ let startNumber = 0
 let repeat = 0
 let currRepeat = 0
 let skip = 0
+let p = 0
+async function changePause()
+{
+    (p)?p=0:p=1
+    console.log(p);
+    
+}
+async function wait()
+{
+    await new Promise((resolve)=>
+    {
+        let t=setInterval(()=>{
+            if(!p)
+            {
+                repeat = document.querySelector(".repeat").value-1 || 0
+                skip = document.querySelector(".skip").value || 1
+                console.log("hello");
+                clearInterval(t)
+                resolve()
+            }
+        },100)
+    })
+}
 async function print()
 {
     grid = []
@@ -11,6 +34,10 @@ async function print()
     repeat = document.querySelector(".repeat").value-1 || 0
     skip = document.querySelector(".skip").value || 0
     let size = document.querySelector(".size").value
+    if(repeat<0)
+    {
+        alert("I know you gave negative repeat !!!")
+    }
     createGrid(size)
     createTable();
     console.log(grid)
@@ -78,6 +105,13 @@ async function upDir(srow,erow,col)
             currRepeat=0
             value++
         }
+        console.log("hi",value);
+        
+        if(p)
+        {
+            await wait()
+        }
+        console.log("hello",value)
     }
 }
 
@@ -97,6 +131,10 @@ async function rightDir(scol,ecol,row)
         {
             currRepeat=0
             value++
+        }
+        if(p)
+        {
+            await wait()
         }
     }
 }
@@ -118,6 +156,10 @@ async function downDir(srow,erow,col)
             currRepeat=0
             value++
         }
+        if(p)
+        {
+            await wait()
+        }
     }
 }
 async function leftDir(scol,ecol,row)
@@ -136,6 +178,10 @@ async function leftDir(scol,ecol,row)
         {
             currRepeat=0
             value++
+        }
+        if(p)
+        {
+            await wait()
         }
     }
 }
